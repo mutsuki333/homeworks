@@ -1,1 +1,1 @@
-# gh-pages branch for homework use web designs 
+# gh-pages branch for homework purpose web designs 
