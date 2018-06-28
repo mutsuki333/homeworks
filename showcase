@@ -1,0 +1,23 @@
+#automize README links and start showcase server
+
+echo "update entries";
+if ! [ -f "README.md" ];then
+    echo "touch README.md";
+fi
+
+echo "\
+# gh-pages branch for homework purpose web designs 
+
+## Page URLs 
+https://mutsuki333.github.io/homeworks/ + **dir_name** 
+\`\`\`shell
+$(tree -L 1 -d)
+\`\`\`" > README.md;
+
+
+for d in */ ; do
+    echo "[$d]($d)" >> README.md
+done
+
+printf "\nstart showcase server\n\n"; 
+python -m http.server;
