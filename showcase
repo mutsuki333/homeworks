@@ -14,13 +14,14 @@ https://mutsuki333.github.io/homeworks/ + **dir_name**
 $(tree -L 1 -d)
 \`\`\`  
 
-or click the following links" >README.md;
-
+or click the following links:  " >README.md;
 
 
 for d in */ ; do
     echo "[$d](https://mutsuki333.github.io/homeworks/$d)  " >> README.md
 done
 
-printf "\nstart showcase server\n\n"; 
-python -m http.server;
+if [ "$1" == "start" ]; then
+    printf "\nstart showcase server\n\n"; 
+    python -m http.server;
+fi

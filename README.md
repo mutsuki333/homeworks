@@ -10,6 +10,6 @@ https://mutsuki333.github.io/homeworks/ + **dir_name**
 2 directories
 ```  
 
-or click the following links
+or click the following links:  
 [E-Commerce/](https://mutsuki333.github.io/homeworks/E-Commerce/)  
 [IIM_Marketing/](https://mutsuki333.github.io/homeworks/IIM_Marketing/)  
