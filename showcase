@@ -12,11 +12,14 @@ echo "\
 https://mutsuki333.github.io/homeworks/ + **dir_name** 
 \`\`\`shell
 $(tree -L 1 -d)
-\`\`\`" > README.md;
+\`\`\`  
+
+or click the following links" >README.md;
+
 
 
 for d in */ ; do
-    echo "[$d]($d)" >> README.md
+    echo "[$d](https://mutsuki333.github.io/homeworks/$d)  " >> README.md
 done
 
 printf "\nstart showcase server\n\n"; 
