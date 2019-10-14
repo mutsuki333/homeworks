@@ -6,7 +6,7 @@ import store from './store'
 
 
 
-axios.defaults.baseURL = 'http://0.0.0.0:8000/mock/api';
+axios.defaults.baseURL = 'http://127.0.0.1:8000/api';
 axios.defaults.withCredentials = true;
 axios.defaults.debug = true;
 axios.defaults.xsrfCookieName = 'csrftoken'

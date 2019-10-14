@@ -9,6 +9,7 @@
 **/*.sock
 /db.sqlite3
 /dist
+/media
 /access.log
 /.cache
 

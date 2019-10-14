@@ -5,7 +5,7 @@
       |  | 
       router-link(to="/stock") 庫存瀏覽
       |  | 
-      router-link(to="/modify") 修改品項
+      router-link(to="/modify") 新增商品
     router-view
 
 </template>
