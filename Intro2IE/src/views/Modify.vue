@@ -27,12 +27,12 @@
     .level-left
       button.button.is-danger(@click="del") 刪除
     .level-right
-      button.button.is-primary(@click="clear") 取消
+      button.button.is-primary(@click="cancel") 取消
       button.button.is-info.m-l-1(@click="send") 確定
 
   .level.p-t-4.is-mobile(v-else)
     .level-left
-      button.button.is-primary(@click="clear") 取消
+      button.button.is-primary(@click="cancel") 取消
     .level-right
       button.button.is-info(@click="send") 確定
 
@@ -79,6 +79,10 @@ export default {
       this.description=""
       this.stock=0
       this.file_name=""
+    },
+    cancel(){
+      this.clear()
+      this.$router.push('/stock')
     },
     del(){
       axios(`/del_item?id=${this.id}`)
