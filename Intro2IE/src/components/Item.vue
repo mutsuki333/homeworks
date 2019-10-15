@@ -4,15 +4,19 @@ article.media.p-t-3.p-x-1.is-boxed
     p.image.is-64x64
       img(v-if="pic" :src="url+'/'+pic")
   .media-content
-    .content(@click="click")
-      p
-        strong {{name}}
-        br
-        | {{description}}
+    nav.level.is-mobile
+      .level-left
+        .content
+          p
+            strong {{name}}
+            br
+            | {{description}}
+      .level-right
+        button.button.is-rounded.is-small.is-success(@click="click")
+          | 修改
     nav.level.is-mobile
       .level-left
         p 庫存量： {{stock_}}
-        //- button.button.is-primary 增加
       .level-right
         button.button.is-primary.is-small.m-r-1(@click="inc") 增加
         button.button.is-danger.is-small(@click="dec") 減少
@@ -26,7 +30,7 @@ export default {
   data() {
     return {
       stock_:this.stock,
-      url:'http://127.0.0.1:8000/media'
+      url:axios.defaults.baseURL.replace('/api','/media')
     }
   },
   methods: {
