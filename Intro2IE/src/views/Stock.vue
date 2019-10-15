@@ -1,13 +1,13 @@
 <template lang="pug">
-  div
-    //- h1 stock
-    div(v-for="item in items" :key="item.id")
-      //- p {{item.name}}
-      Item(:id="item.id", 
-            :name="item.name", 
-            :description="item.description", 
-            :stock="item.stock"
-            :pic="item.picture")
+.container
+  //- h1 stock
+  div(v-for="item in items" :key="item.id")
+    //- p {{item.name}}
+    Item(:id="item.id", 
+          :name="item.name", 
+          :description="item.description", 
+          :stock="item.stock"
+          :pic="item.picture")
 </template>
 
 <script>
@@ -29,3 +29,9 @@ export default {
   },
 }
 </script>
+
+<style lang="sass">
+@media (min-width:768px)
+  .container
+    width:40%
+</style>
