@@ -1,5 +1,5 @@
 <template lang="pug">
-.container.p-x-1.has-text-left
+.container.p-x-1.p-t-2.has-text-left
   .field
     label.label 品名
     .control

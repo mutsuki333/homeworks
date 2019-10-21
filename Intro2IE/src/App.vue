@@ -1,5 +1,6 @@
 <template lang="pug">
   #app
+    h1.title.has-text-info.p-t-2 即時存貨管理系統
     #nav.is-size-4
       router-link(to="/") 首頁
       |  | 
@@ -25,7 +26,6 @@ import "src/theme.sass"
   color: #2c3e50;
 }
 #nav {
-  padding: 30px;
   a {
     font-weight: bold;
     color: #2c3e50;

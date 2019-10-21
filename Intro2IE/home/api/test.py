@@ -31,16 +31,18 @@ def newItem(request):
 
 def setPic(request):
     id = request.GET.get('id')
-    # print(request.FILES['file'])
     try:
         item = Item.objects.get(id=id)
     except:
         return HttpResponse(status=404)
     try:
+        if item.picture:
+            item.picture.delete()
         setattr(item,'picture',request.FILES['file'])
         item.save()
     except:
         print('failed')
+        return HttpResponse('failed')
     return HttpResponse('success')
 
 def getItem(request):
@@ -64,6 +66,8 @@ def delItem(request):
         item = Item.objects.get(id=id)
     except:
         return HttpResponse(status=404)
+    if item.picture:
+        item.picture.delete()
     item.delete()
     return HttpResponse('ok')
 
