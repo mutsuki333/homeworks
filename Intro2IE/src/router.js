@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Stock from './views/Stock.vue'
 import Modify from './views/Modify.vue'
+import Status from './views/Status.vue'
 
 Vue.use(Router)
 
@@ -31,6 +32,11 @@ export default new Router({
       name: 'alter',
       props: true,
       component: Modify
+    },
+    {
+      path: '/status',
+      name: 'status',
+      component: Status
     },
   ]
 })

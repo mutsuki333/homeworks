@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 class Item(models.Model):
@@ -9,3 +10,8 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
+
+class Record(models.Model):
+    item_name = models.CharField(_('item_name'), max_length=30)
+    alter = models.IntegerField(default=0)
+    date = models.DateTimeField(default=timezone.now)

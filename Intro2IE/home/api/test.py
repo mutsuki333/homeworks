@@ -2,7 +2,7 @@ from django.urls import path, re_path
 from django.http import JsonResponse, HttpResponse
 import json
 
-from home.models import Item
+from home.models import Item, Record
 
 
 def msg(request):
@@ -23,8 +23,13 @@ def newItem(request):
                     description=description,
                     stock=stock)
         item.save()
+        record = Record(item_name=item.name, alter=stock)
+        record.save()
         return HttpResponse(item.id)
     item.description = description
+    if item.stock != int(stock):
+        record = Record(item_name=item.name, alter=int(stock)-item.stock)
+        record.save()
     item.stock = stock
     item.save()
     return HttpResponse(item.id)
@@ -54,10 +59,23 @@ def getItem(request):
     return JsonResponse(list(item),safe=False)
 
 def getItems(request):
-    try:
-        items = Item.objects.all().values()
-    except:
-        return HttpResponse(status=404)
+    query = request.GET.get('query')
+    stock_level = request.GET.get('stock_level')
+    if query:
+        try:
+            items = Item.objects.filter(name__icontains=query).values()
+        except:
+            return HttpResponse(status=404)
+    elif stock_level:
+        try:
+            items = Item.objects.filter(stock__lte=stock_level).values()
+        except:
+            return HttpResponse(status=404)
+    else:
+        try:
+            items = Item.objects.all().values()
+        except:
+            return HttpResponse(status=404)
     return JsonResponse(list(items),safe=False)
 
 def delItem(request):
@@ -68,6 +86,9 @@ def delItem(request):
         return HttpResponse(status=404)
     if item.picture:
         item.picture.delete()
+    if item.stock>0:
+        record = Record(item_name=item.name,alter=-item.stock)
+        record.save()
     item.delete()
     return HttpResponse('ok')
 
@@ -79,6 +100,8 @@ def inc(request):
         return HttpResponse(status=404)
     item.stock += 1
     item.save()
+    record = Record(item_name=item.name, alter=1)
+    record.save()
     return HttpResponse('ok')
 
 def dec(request):
@@ -87,10 +110,28 @@ def dec(request):
         item = Item.objects.get(id=id)
     except:
         return HttpResponse(status=404)
+    if item.stock <= 0:
+        return HttpResponse(status=404)
     item.stock -= 1
     item.save()
+    record = Record(item_name=item.name, alter=-1)
+    record.save()
     return HttpResponse('ok')
 
+def records(request):
+    try:
+        records = Record.objects.all().order_by('-date')[:20]
+    except:
+        return HttpResponse(status=404)
+    obj = []
+    for r in records:
+        obj.append({
+            'item_name':r.item_name,
+            'alter':r.alter,
+            'date':r.date.isoformat()
+        })
+    
+    return JsonResponse(obj,safe=False)
 
 urlpatterns = [
     path('msg', msg),
@@ -100,5 +141,6 @@ urlpatterns = [
     path('del_item',delItem),
     path('get_items',getItems),
     path('inc',inc),
-    path('dec',dec)
+    path('dec',dec),
+    path('records',records)
 ]

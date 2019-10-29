@@ -1,12 +1,14 @@
 <template lang="pug">
   #app
-    h1.title.has-text-info.p-t-2 即時存貨管理系統
-    #nav.is-size-4
+    h1.title.has-text-info.p-t-1 即時存貨管理系統
+    #nav.is-size-5
       router-link(to="/") 首頁
       |  | 
       router-link(to="/stock") 庫存瀏覽
       |  | 
       router-link(to="/modify") 新增商品
+      |  | 
+      router-link(to="/status") 統計
     router-view
 
 </template>

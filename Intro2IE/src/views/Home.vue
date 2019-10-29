@@ -1,4 +1,7 @@
 <template lang="pug">
-  div
-    h1 Home
+  section.hero.is-fullheight-with-navbar
+    .hero-body
+      .container
+        p.title
+          | 首頁
 </template>

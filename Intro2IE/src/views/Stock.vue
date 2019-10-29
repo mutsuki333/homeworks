@@ -1,8 +1,11 @@
 <template lang="pug">
 .container
-  //- h1 stock
+  .p-1
+    p.control.has-icons-left
+      input.input(type='text', placeholder='搜尋', v-model="search_text")
+      span.icon.is-left
+        i.fas.fa-search(aria-hidden='true')
   div(v-for="item in items" :key="item.id")
-    //- p {{item.name}}
     Item(:id="item.id", 
           :name="item.name", 
           :description="item.description", 
@@ -18,7 +21,9 @@ export default {
   components:{Item},
   data(){
     return{
-      items:[]
+      items:[],
+      search_text:"",
+      no_item:true
     }
   },
   beforeCreate() {
@@ -26,6 +31,14 @@ export default {
     .then(res=>{
       this.items = res.data
     })
+  },
+  watch: {
+    search_text(value){
+      axios('/get_items?query='+value)
+      .then(res=>{
+        this.items = res.data
+      })
+    }
   },
 }
 </script>
