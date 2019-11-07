@@ -9,7 +9,7 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  // base: process.env.BASE_URL,
+  base: 'Intro2IE',
   // base: '/dennyplay', //for deploy
   routes: [
     {
