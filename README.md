@@ -14,4 +14,4 @@ https://mutsuki333.github.io/homeworks/ + **dir_name**
 or click the following links:  
 [E-Commerce/](https://mutsuki333.github.io/homeworks/E-Commerce/)  
 [IIM_Marketing/](https://mutsuki333.github.io/homeworks/IIM_Marketing/)  
-[Intro2IE/](https://mutsuki333.github.io/homeworks/Intro2IE/)  
+[Intro2IE/](http://218.161.27.75/evan/Intro2IE/)  
