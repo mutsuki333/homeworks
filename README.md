@@ -12,6 +12,6 @@ https://mutsuki333.github.io/homeworks/ + **dir_name**
 ```  
 
 or click the following links:  
-[E-Commerce/](https://mutsuki333.github.io/homeworks/E-Commerce/)  
-[IIM_Marketing/](https://mutsuki333.github.io/homeworks/IIM_Marketing/)  
-[Intro2IE/](http://218.161.27.75/evan/Intro2IE/)  
+[E-Commerce/](https://mutsuki333.github.io/homeworks/E-Commerce/)  A prototype website for furnish selling.  
+[IIM_Marketing/](https://mutsuki333.github.io/homeworks/IIM_Marketing/) A landing page for game selling.  
+[Intro2IE/](http://218.161.27.75/evan/Intro2IE/) a working website for stock managing  

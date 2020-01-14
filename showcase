@@ -1,25 +1,27 @@
 #automize README links and start showcase server
 
-echo "update entries";
-if ! [ -f "README.md" ];then
-    echo "touch README.md";
-fi
+# echo "update entries";
+# if ! [ -f "README.md" ];then
+#     echo "touch README.md";
+# fi
 
-echo "\
-# gh-pages branch for homework purpose web designs 
+# echo "\
+# # gh-pages branch for homework purpose web designs 
 
-## Page URLs 
-https://mutsuki333.github.io/homeworks/ + **dir_name** 
-\`\`\`shell
-$(tree -L 1 -d)
-\`\`\`  
+# ## Page URLs 
 
-or click the following links:  " >README.md;
+# https://mutsuki333.github.io/homeworks/ + **dir_name** 
+
+# \`\`\`shell
+# $(tree -L 1 -d)
+# \`\`\`  
+
+# or click the following links:  " >README.md;
 
 
-for d in */ ; do
-    echo "[$d](https://mutsuki333.github.io/homeworks/$d)  " >> README.md
-done
+# for d in */ ; do
+#     echo "[$d](https://mutsuki333.github.io/homeworks/$d)  " >> README.md
+# done
 
 if [ "$1" == "start" ]; then
     printf "\nstart showcase server\n\n"; 
